@@ -1,0 +1,38 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+module = "change"
+dist-name = "change-log"
+author = "Eileen Kuehn, Max Fischer"
+author-email = "mainekuehn@gmail.com"
+home-page = "https://github.com/MatterMiners/change-log"
+description-file = "README.rst"
+keywords = "release changelog distribution package"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    'Development Status :: 2 - Pre-Alpha',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Information Technology',
+    'Topic :: Adaptive Technologies',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7'
+]
+requires = [
+    "pyyaml",
+]
+
+[tool.flit.metadata.requires-extra]
+test = [
+    "pytest >=4.3.0",
+    "flake8",
+    "flake8-bugbear",
+    "black; implementation_name=='cpython'",
+]
+doc = ["sphinx", "sphinx_rtd_theme"]
+dev = ["pre-commit"]
+
+[tool.flit.metadata.urls]
+Documentation = "https://change-log.readthedocs.io/en/latest/"
