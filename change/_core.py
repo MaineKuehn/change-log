@@ -10,8 +10,7 @@ class ConfigArgumentParser(argparse.ArgumentParser):
 
 
 CLI = ConfigArgumentParser(
-    description="change and manage package information",
-    fromfile_prefix_chars="@",
+    description="change and manage package information", fromfile_prefix_chars="@"
 )
 CMD_CLI = CLI.add_subparsers(required=True, dest="CMD")
 
