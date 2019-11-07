@@ -48,9 +48,7 @@ def compile(options: argparse.Namespace):
 
 
 def release(options: argparse.Namespace):
-    release_changes(
-        fragment_dir=options.FRAGMENT_DIR, new_ver=options.SEMVER,
-    )
+    release_changes(fragment_dir=options.FRAGMENT_DIR, new_ver=options.SEMVER)
 
 
 def mount_cli(command_cli):
@@ -67,14 +65,14 @@ def mount_cli(command_cli):
     release_cli = sub_cli.add_parser("release", help="prepare unreleased fragments")
     release_cli.set_defaults(action=release)
     release_cli.add_argument(
-        "SEMVER", help="version of unreleased fragments", type=is_semver,
+        "SEMVER", help="version of unreleased fragments", type=is_semver
     )
 
     # CLI for writing changelogs
-    compile_cli = sub_cli.add_parser("compile", help="compile a changelog",)
+    compile_cli = sub_cli.add_parser("compile", help="compile a changelog")
     compile_cli.set_defaults(action=compile)
     compile_cli.add_argument(
-        "-o", "--output", help='output path or "-" for stdout', default="-",
+        "-o", "--output", help='output path or "-" for stdout', default="-"
     )
     compile_cli.add_argument(
         "-f",
@@ -253,10 +251,7 @@ def release_changes(fragment_dir, new_ver: str):
 
 # Changelog compilation
 def format_release(
-    release: Release,
-    fragments: List[Fragment],
-    item_format: str,
-    categories: List[str],
+    release: Release, fragments: List[Fragment], item_format: str, categories: List[str]
 ) -> List[str]:
     """Compile the changelog section for a single release"""
     lines = underline(f"[{release.semver}] - {release.date}", "=")
