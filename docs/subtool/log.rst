@@ -1,6 +1,17 @@
 ``change log`` Fragments
 ------------------------
 
+The ``change log`` utility manages change fragments
+and compiles entire changelogs if required.
+Each fragment represents an individual change made
+for some version of your project;
+versions tie together all changes that are released together.
+
+Changelogs are based on keepachangelog_ and semantic versioning.
+
+Fragments
+---------
+
 Fragments are YAML files that contain meta-data
 and human-readable descriptions of individual changes.
 Each fragment file contains a mappings that must contain
@@ -32,3 +43,5 @@ Both ``summary`` and ``description`` fields are interpreted as reStructured Text
 The ``version`` is optional and in most cases does not need manual definitions.
 Unversioned fragments belong to the "next" release, and
 specific release information is added automatically when a release is prepared.
+
+.. _keepachangelog: https://keepachangelog.com/
