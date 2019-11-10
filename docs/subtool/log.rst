@@ -1,5 +1,6 @@
+========================
 ``change log`` Fragments
-------------------------
+========================
 
 The ``change log`` utility manages change fragments
 and compiles entire changelogs if required.
