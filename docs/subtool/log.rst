@@ -8,7 +8,7 @@ Each fragment represents an individual change made
 for some version of your project;
 versions tie together all changes that are released together.
 
-Changelogs are based on keepachangelog_ and semantic versioning.
+Changelogs are based on `keep a changelog`_ and `semantic versioning`_.
 
 Fragments
 ---------
@@ -45,4 +45,5 @@ The ``version`` is optional and in most cases does not need manual definitions.
 Unversioned fragments belong to the "next" release, and
 specific release information is added automatically when a release is prepared.
 
-.. _keepachangelog: https://keepachangelog.com/
+.. _keep a changelog: https://keepachangelog.com/
+.. _semantic versioning: https://semver.org
