@@ -25,23 +25,21 @@ The ``category`` should be one of
 
 .. code:: YAML
 
-    # file `39.line_format.fixes.yaml`
+    # file `4.documentation.yaml`
     # any of 'added', 'changed', 'fixed', 'deprecated', 'removed', 'security'
-    category: fixed
+    category: added
     # short description of changes
-    summary: "fixed Line Protocol sending illegal content"
+    summary: "Added basic documentation on readthedocs.io"
     # pull requests of this change
     pull requests:
-      - 39
-      - 44
+      - 4
     # issues solved by this change
     issues:
-      - 42
+      - 5
     # long description of changes
     description: |
-      The Line Protocol implementation has been extended to remove cases that
-      previously led to illegal output. ``None`` values are
-      forbidden, and strings are escaped in field values, tags, and measurements.
+      A ``sphinx`` documentation for tool usage and code maintenance is available at
+      `change-log.readthedocs.io <https://change-log.readthedocs.io/en/feature-docs/>`_.
 
 The ``version`` is optional and in most cases does not need manual definitions.
 Unversioned fragments belong to the "next" release, and
