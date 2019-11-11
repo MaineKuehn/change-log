@@ -15,7 +15,7 @@ Fragments
 
 Fragments are YAML files that contain meta-data
 and human-readable descriptions of individual changes.
-Each fragment file contains a mappings that must contain
+Each fragment file contains a mapping that must contain
 the fields ``category``, ``summary``, and ``description`` and optionally the fields
 ``pull requests`` and ``issues``; a unique naming convention of files such as
 ``<first PR>.<topic>.yaml`` is recommended.
@@ -41,8 +41,8 @@ The ``category`` should be one of
       A ``sphinx`` documentation for tool usage and code maintenance is available at
       `change-log.readthedocs.io <https://change-log.readthedocs.io/en/feature-docs/>`_.
 
-The ``version`` is optional and in most cases does not need manual definitions.
-Unversioned fragments belong to the "next" release, and
+The ``version`` is optional and in most cases does not need manual definition.
+Unversioned fragments belong to the *next* release, and
 specific release information is added automatically when a release is prepared.
 
 .. _keep a changelog: https://keepachangelog.com/
