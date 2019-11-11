@@ -20,6 +20,8 @@ the fields ``category``, ``summary``, and ``description`` and optionally the fie
 ``pull requests`` and ``issues``; a unique naming convention of files such as
 ``<first PR>.<topic>.yaml`` is recommended.
 Both ``summary`` and ``description`` fields are interpreted as reStructured Text.
+The ``category`` should be one of
+``added``, ``changed``, ``fixed``, ``deprecated``, ``removed``, or ``security``.
 
 .. code:: YAML
 
