@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'change-log'
-copyright = '2019, Eileen Kuehn, Max Fischer'
 author = 'Eileen Kuehn, Max Fischer'
+copyright = '2019, %s' % author
 
 
 # -- General configuration ---------------------------------------------------
