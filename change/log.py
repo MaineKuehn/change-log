@@ -77,7 +77,7 @@ def mount_cli(command_cli):
     compile_cli.add_argument(
         "-f",
         "--item_format",
-        default="* {summary}",
+        default="{summary}",
         help="format of individual changes",
     )
     compile_cli.add_argument(
@@ -277,7 +277,7 @@ def format_release(
     release: Release, fragments: List[Fragment], item_format: str, categories: List[str]
 ) -> List[str]:
     """Compile the changelog section for a single release"""
-    lines = underline(f"[{release.semver}] - {release.date}", "=")
+    lines = underline(f"Version [{release.semver}] - {release.date}", "+")
     categorised_fragments = {
         cat.casefold(): frags
         for cat, frags in categorise(fragments, "category").items()
@@ -286,9 +286,10 @@ def format_release(
         caseless = category.casefold()
         if caseless not in categorised_fragments:
             continue
-        lines.extend(underline(category, "-"))
         for fragment in categorised_fragments[caseless]:
-            lines.append(item_format.format(**fragment._asdict()))
+            lines.append(
+                f'* **[{category}]** ' + item_format.format(**fragment._asdict())
+            )
         lines.append("")
     return lines
 
@@ -298,7 +299,7 @@ CHANGELOG_HEADER = f"""
    '{" ".join(sys.argv)}'
    based on the format of 'https://keepachangelog.com/'
 #########
-CHANGELOG
+ChangeLog
 #########
 
 """.lstrip()
