@@ -250,6 +250,29 @@ def release_changes(fragment_dir, new_ver: str):
 
 
 # Changelog compilation
+def group_releases(releases: Iterable[Release]):
+    """Group releases into series of the same minor release"""
+    return [
+        list(series) for _, series in itertools.groupby(
+            releases,
+            key=lambda release: release.numeric[:2])
+    ]
+
+
+def format_minor(first: Release) -> List[str]:
+    """Compile a minor release header from its most-recent release"""
+    if first is UNRELEASED:
+        lines = underline(
+            f"Upcoming", "="
+        )
+    else:
+        lines = underline(
+            f"{first.numeric[0]}.{first.numeric[1]} Series",
+            "="
+        )
+    return lines
+
+
 def format_release(
     release: Release, fragments: List[Fragment], item_format: str, categories: List[str]
 ) -> List[str]:
@@ -294,11 +317,17 @@ def compile_changelog(fragment_dir, output, item_format, categories: List[str]):
     )
     with out_context as out_stream:
         out_stream.write(CHANGELOG_HEADER)
-        for release in releases:
-            for line in format_release(
-                release, versioned_fragments[release.semver], item_format, categories
-            ):
+        for series in group_releases(releases):
+            for line in format_minor(series[0]):
                 out_stream.write(line + "\n")
+            for release in series:
+                for line in format_release(
+                    release,
+                    versioned_fragments[release.semver],
+                    item_format,
+                    categories,
+                ):
+                    out_stream.write(line + "\n")
 
 
 if __name__ == "__main__":
