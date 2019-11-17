@@ -222,7 +222,7 @@ def load_metadata(fragment_dir: str) -> Tuple[List[Release], Dict[str, List[Frag
     )
     if UNRELEASED.semver in versioned_fragments:
         releases.append(UNRELEASED)
-    releases.sort()
+    releases.sort(reverse=True)
     return releases, versioned_fragments
 
 
@@ -277,6 +277,7 @@ CHANGELOG_HEADER = f"""
 #########
 CHANGELOG
 #########
+
 """.lstrip()
 
 
