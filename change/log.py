@@ -75,10 +75,7 @@ def mount_cli(command_cli):
         "-o", "--output", help='output path or "-" for stdout', default="-"
     )
     compile_cli.add_argument(
-        "-f",
-        "--item_format",
-        default="{summary}",
-        help="format of individual changes",
+        "-f", "--item_format", default="{summary}", help="format of individual changes",
     )
     compile_cli.add_argument(
         "-c",
@@ -253,23 +250,19 @@ def release_changes(fragment_dir, new_ver: str):
 def group_releases(releases: Iterable[Release]):
     """Group releases into series of the same minor release"""
     return [
-        list(series) for _, series in itertools.groupby(
-            releases,
-            key=lambda release: release.numeric[:2])
+        list(series)
+        for _, series in itertools.groupby(
+            releases, key=lambda release: release.numeric[:2]
+        )
     ]
 
 
 def format_minor(first: Release) -> List[str]:
     """Compile a minor release header from its most-recent release"""
     if first is UNRELEASED:
-        lines = underline(
-            f"Upcoming", "="
-        )
+        lines = underline(f"Upcoming", "=")
     else:
-        lines = underline(
-            f"{first.numeric[0]}.{first.numeric[1]} Series",
-            "="
-        )
+        lines = underline(f"{first.numeric[0]}.{first.numeric[1]} Series", "=")
     return lines
 
 
@@ -288,7 +281,7 @@ def format_release(
             continue
         for fragment in categorised_fragments[caseless]:
             lines.append(
-                f'* **[{category}]** ' + item_format.format(**fragment._asdict())
+                f"* **[{category}]** " + item_format.format(**fragment._asdict())
             )
         lines.append("")
     return lines
