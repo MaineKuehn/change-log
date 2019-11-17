@@ -277,6 +277,7 @@ CHANGELOG_HEADER = f"""
 #########
 CHANGELOG
 #########
+
 """.lstrip()
 
 
