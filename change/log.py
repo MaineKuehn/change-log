@@ -322,6 +322,7 @@ def compile_changelog(fragment_dir, output, item_format, categories: List[str]):
                     categories,
                 ):
                     out_stream.write(line + "\n")
+        out_stream.write("\n")
 
 
 if __name__ == "__main__":
